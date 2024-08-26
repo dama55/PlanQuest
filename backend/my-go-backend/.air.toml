@@ -1,0 +1,18 @@
+[build]
+    poll = true
+
+[log]
+    # ログの色を有効にする
+    color = "true"
+    # タイムスタンプのフォーマット
+    time_format = "2006-01-02 15:04:05"
+
+[dirs]
+    # 監視対象のディレクトリ
+    watch = [
+        ".",
+        "./handlers",
+        "./middleware",
+        "./models",
+        "./services"
+    ]

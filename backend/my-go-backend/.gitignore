@@ -1,0 +1,27 @@
+# ビルド成果物
+/bin/
+/pkg/
+/build/
+
+# Go モジュールキャッシュ
+go.sum
+
+# コンパイル済みのオブジェクトファイル
+*.o
+
+# IDE やエディタの設定ファイル
+.idea/
+/.vscode/
+
+# OS 固有のファイル
+.DS_Store
+Thumbs.db
+
+# ログファイル
+*.log
+
+# 環境変数ファイル
+.env
+
+# カバレッジレポート
+coverage.out

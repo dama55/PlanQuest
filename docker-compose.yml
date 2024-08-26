@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - backend
+  
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/usr/src/app
+    environment:
+      - GIN_MODE=debug
+      - AIR_MODE=true
+      - AIR_POLLING=true
+    depends_on:
+      - db
+  
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=mydatabase 
+      - MYSQL_USER=user 
+      - MYSQL_PASSWORD=password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
